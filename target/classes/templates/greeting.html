@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Курс валют на сегодня:</h1>
+
+<form method="post" action="/filter">
+    <input type="text" name="filter" />
+    <button type="submit">Найти</button>
+</form>
+    <table >
+        <tr>
+            <th>Наименование</th>
+            <th>Курс</th>
+        </tr>
+        <tr th:each="rate : ${exchangeRates}">
+            <td th:text="${rate.getKey()}"></td>
+            <td th:text="${rate.getValue()}"></td>
+        </tr>
+    </table>
+</body>
+</html>
